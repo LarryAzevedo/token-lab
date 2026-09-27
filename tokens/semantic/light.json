@@ -1,0 +1,20 @@
+{
+  "color": {
+    "bg": {
+      "surface": { "$type": "color", "$value": "{color.gray.0}", "$description": "Default page and card background" },
+      "subtle": { "$type": "color", "$value": "{color.gray.50}", "$description": "Secondary background, such as a sidebar" }
+    },
+    "text": {
+      "default": { "$type": "color", "$value": "{color.gray.900}", "$description": "Body text and headings" },
+      "subtle": { "$type": "color", "$value": "{color.gray.600}", "$description": "Supporting text, captions" }
+    },
+    "border": {
+      "default": { "$type": "color", "$value": "{color.gray.100}", "$description": "Dividers and card outlines" }
+    },
+    "action": {
+      "primary": { "$type": "color", "$value": "{color.blue.600}", "$description": "Primary button background, links" },
+      "primary-hover": { "$type": "color", "$value": "{color.blue.700}", "$description": "Primary button hover" },
+      "on-primary": { "$type": "color", "$value": "{color.gray.0}", "$description": "Text on a primary button" }
+    }
+  }
+}

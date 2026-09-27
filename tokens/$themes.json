@@ -1,0 +1,32 @@
+[
+  {
+    "id": "primitives-default",
+    "name": "Default",
+    "group": "Primitives",
+    "selectedTokenSets": {
+      "primitives/color": "enabled",
+      "semantic/light": "disabled",
+      "semantic/dark": "disabled"
+    }
+  },
+  {
+    "id": "color-mode-light",
+    "name": "Light",
+    "group": "Color mode",
+    "selectedTokenSets": {
+      "primitives/color": "source",
+      "semantic/light": "enabled",
+      "semantic/dark": "disabled"
+    }
+  },
+  {
+    "id": "color-mode-dark",
+    "name": "Dark",
+    "group": "Color mode",
+    "selectedTokenSets": {
+      "primitives/color": "source",
+      "semantic/light": "disabled",
+      "semantic/dark": "enabled"
+    }
+  }
+]
