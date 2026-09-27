@@ -1,0 +1,47 @@
+# Runs on GitHub's computers every time token files change on main.
+# It rebuilds dist/tokens.css and saves it back into the repository.
+
+name: Build tokens
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'tokens/**'
+      - 'build.mjs'
+      - 'package.json'
+  workflow_dispatch: # Adds a "Run workflow" button on the Actions tab
+
+permissions:
+  contents: write # Lets this workflow commit the built CSS
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get the repository files
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install Style Dictionary
+        run: npm ci
+
+      - name: Build tokens.css
+        run: npm run build
+
+      - name: Save tokens.css back to the repository
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add dist/tokens.css
+          if git diff --cached --quiet; then
+            echo "tokens.css did not change."
+          else
+            git commit -m "Build tokens.css from token changes"
+            git push
+          fi
